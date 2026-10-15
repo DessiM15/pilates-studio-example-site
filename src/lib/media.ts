@@ -196,6 +196,7 @@ export type PhotoKey = keyof typeof photos;
 
 export type Clip = {
   id: number;
+  /** Self hosted, trimmed and transcoded from the Pexels original (see scripts/videos.sh). */
   src: string;
   /** Optional portrait source for phones. */
   portraitSrc?: string;
@@ -207,58 +208,57 @@ export type Clip = {
 export const clips = {
   reformerPlants: {
     id: 28675170,
-    src: "https://videos.pexels.com/video-files/28675170/12449795_2562_1440_60fps.mp4",
+    src: "/video/reformer-plants.mp4",
     poster: "reformerWindows",
     alt: "A woman in a long extension on a reformer in a plant filled studio",
     credit: "Orit Ein Yam on Pexels",
   },
   rollingMats: {
     id: 8480539,
-    src: "https://videos.pexels.com/video-files/8480539/8480539-hd_1920_1080_25fps.mp4",
+    src: "/video/rolling-mats.mp4",
     poster: "matDuo",
     alt: "A group unrolling mats before class in a warm studio",
     credit: "Pexels",
   },
   legsInStraps: {
     id: 6023223,
-    src: "https://videos.pexels.com/video-files/6023223/6023223-hd_1920_1080_25fps.mp4",
+    src: "/video/legs-in-straps.mp4",
     poster: "reformerLegsInStraps",
     alt: "A client working through legs in straps on a reformer with an instructor",
     credit: "Kampus Production on Pexels",
   },
   hero: {
     id: 6023188,
-    src: "https://videos.pexels.com/video-files/6023188/6023188-hd_1920_1080_25fps.mp4",
-    portraitSrc:
-      "https://videos.pexels.com/video-files/35576710/15075830_1440_2560_60fps.mp4",
+    src: "/video/teaching.mp4",
+    portraitSrc: "/video/studio-room.mp4",
     poster: "heroStill",
     alt: "Slow footage of an instructor guiding a client on a reformer in a sunlit studio",
     credit: "Kampus Production and Content Kiosk on Pexels",
   },
   studioRoom: {
     id: 35576710,
-    src: "https://videos.pexels.com/video-files/35576710/15075830_1440_2560_60fps.mp4",
+    src: "/video/studio-room.mp4",
     poster: "reformerRow",
     alt: "A slow pan across a warm, modern reformer studio",
     credit: "Content Kiosk on Pexels",
   },
   stretch: {
     id: 8502424,
-    src: "https://videos.pexels.com/video-files/8502424/8502424-hd_1080_1920_25fps.mp4",
+    src: "/video/stretch.mp4",
     poster: "reformerSeated",
     alt: "A woman stretching her arms against a neutral wall",
     credit: "Ivan S on Pexels",
   },
   detail: {
     id: 29474205,
-    src: "https://videos.pexels.com/video-files/29474205/12687552_1080_1920_25fps.mp4",
+    src: "/video/spring-detail.mp4",
     poster: "reformerLegsInStraps",
     alt: "A close detail of a hand adjusting a reformer spring",
     credit: "Oguzhan Muntazam on Pexels",
   },
   plank: {
     id: 6023258,
-    src: "https://videos.pexels.com/video-files/6023258/6023258-hd_1920_1080_25fps.mp4",
+    src: "/video/plank.mp4",
     poster: "matDuo",
     alt: "A woman holding a steady plank on a mat in a wood floored studio",
     credit: "Kampus Production on Pexels",

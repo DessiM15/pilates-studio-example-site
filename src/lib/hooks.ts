@@ -40,3 +40,13 @@ const noop = () => () => {};
 export function useHydrated() {
   return useSyncExternalStore(noop, () => true, () => false);
 }
+
+function subscribeLoaded(cb: () => void) {
+  window.addEventListener("load", cb);
+  return () => window.removeEventListener("load", cb);
+}
+
+/** True once the window load event has fired, so heavy media can start after the page is ready. */
+export function usePageLoaded() {
+  return useSyncExternalStore(subscribeLoaded, () => document.readyState === "complete", () => false);
+}
