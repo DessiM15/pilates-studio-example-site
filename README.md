@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Aurelle Pilates
 
-## Getting Started
+Concept website and booking platform for a boutique reformer and mat Pilates studio opening in Southwest Houston in November 2026. Built as a pitch mockup: every page, flow and portal works end to end on demo data with no backend to set up.
 
-First, run the development server:
+## What is inside
+
+- **Marketing site** with SEO first pages: home, four service pages (reformer, private and duet, mat, prenatal and postnatal), classes hub, instructors and five instructor profiles, pricing, intro offer, new to Pilates guide, FAQ with FAQPage schema, journal with three articles, about, contact, accessibility statement and privacy draft. Every page has one H1 with Pilates in Houston phrasing, per page metadata, canonical links, JSON-LD structured data, a sitemap and robots rules.
+- **Booking** on the schedule page: a 14 day live schedule generated from a weekly template, filters by class and instructor, and an accessible booking panel that spends class credits.
+- **Purchases** through Stripe Checkout in test mode. Without keys the site falls back to a polished mock checkout so the demo never breaks.
+- **ClassPass ready**: ClassPass has no public booking API, so the site exposes Book on ClassPass entry points driven by one config flag and listing URL.
+- **Client portal** at `/account`: credits, upcoming classes with cancellation, purchase history, profile.
+- **Owner portal** at `/studio`: dashboard with live KPIs, schedule management (reassign instructors, change capacity, cancel or add classes), bookings, clients with notes and credit adjustments, instructor load, package sales, announcements and integrations.
+- **Accessibility**: built to WCAG 2.2 AA. Skip link, visible focus, keyboard operable dialogs and menus with focus trapping, labelled forms, live regions, semantic tables, one H1 per page, reduced motion honored for parallax, reveals and ambient video, and audited with axe-core across the key routes.
+
+## Run it
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000. Demo sign in is on `/login` (client or studio owner). Demo data lives in the browser; reset it from the login page or studio settings.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Stripe test mode
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Copy `.env.example` to `.env.local` and add test keys:
 
-## Learn More
+```
+STRIPE_SECRET_KEY=sk_test_...
+NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=pk_test_...
+NEXT_PUBLIC_SITE_URL=http://localhost:3000
+```
 
-To learn more about Next.js, take a look at the following resources:
+Use card `4242 4242 4242 4242` with any future date and CVC. Without keys the Buy buttons complete a mock purchase.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Swap the brand
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- `src/lib/site.ts`: studio name, address, phone, hours, social links, ClassPass listing URL.
+- `src/lib/media.ts`: every photo and clip is a Pexels asset referenced by id. Replace with studio photography when ready.
+- `src/lib/data/`: services, instructors, class types, weekly schedule template, packages, journal posts, FAQ and testimonials.
+- `src/app/globals.css`: color tokens and type scale.
 
-## Deploy on Vercel
+## Stack
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Next.js 16 App Router, React 19, TypeScript, Tailwind CSS 4, Motion, Lenis, Stripe, Cormorant Garamond and Jost via next/font.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Production notes
+
+This is a mockup. For launch: connect bookings and purchases to the studio's booking platform or a database, add real authentication, wire Stripe webhooks, replace Pexels media, and have the privacy policy reviewed by counsel.
