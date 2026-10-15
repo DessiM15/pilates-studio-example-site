@@ -7,6 +7,8 @@ import { clsx } from "clsx";
 import { nav, site } from "@/lib/site";
 import { useStudio } from "@/lib/store/StudioProvider";
 import { Wordmark } from "./Wordmark";
+import { PortalSwitch } from "./PortalSwitch";
+import { scrollToTop } from "@/components/ui/SmoothScroll";
 
 /**
  * Fixed header. On pages that start with a dark, full bleed hero the hero
@@ -80,7 +82,8 @@ export function Header() {
     };
   }, [open, close]);
 
-  const light = overlay && !open;
+  // Light text only while the dark hero is in view and the page is at the top.
+  const light = overlay && !open && !scrolled;
   const portalHref = state.user?.role === "owner" ? "/studio" : "/account";
 
   return (
@@ -93,7 +96,17 @@ export function Header() {
       )}
     >
       <div className="mx-auto flex h-20 max-w-[1600px] items-center justify-between px-5 sm:px-8 lg:px-12">
-        <Link href="/" className="shrink-0" aria-label={`${site.name} home`}>
+        <Link
+          href="/"
+          className="shrink-0"
+          aria-label={`${site.name} home`}
+          onClick={(e) => {
+            if (pathname === "/") {
+              e.preventDefault();
+              scrollToTop(false);
+            }
+          }}
+        >
           <Wordmark className="h-7 w-auto sm:h-8" />
         </Link>
 
@@ -120,10 +133,8 @@ export function Header() {
           </ul>
         </nav>
 
-        <div className="hidden items-center gap-3 lg:flex">
-          <Link href={portalHref} className="eyebrow px-3 py-2 transition-colors hover:text-gold-deep">
-            {state.user ? `Hi, ${state.user.firstName}` : "Sign in"}
-          </Link>
+        <div className="hidden items-center gap-4 lg:flex">
+          <PortalSwitch light={light} />
           <Link
             href="/schedule"
             className={clsx(
@@ -182,6 +193,10 @@ export function Header() {
             <Link href={portalHref} className="eyebrow border border-charcoal px-6 py-4 text-center">
               {state.user ? `${state.user.firstName}'s portal` : "Sign in to your portal"}
             </Link>
+            <div className="flex items-center justify-between gap-4 pt-2">
+              <span className="eyebrow text-stone">Switch portal</span>
+              <PortalSwitch />
+            </div>
           </div>
           <p className="mt-10 text-sm text-stone">
             {site.address.street}

@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { PageHero } from "@/components/sections/PageHero";
 import { CtaBand } from "@/components/sections/CtaBand";
+import { FilmSplit } from "@/components/sections/home/FilmSplit";
+import { Testimonials } from "@/components/sections/home/Testimonials";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Eyebrow } from "@/components/ui/Eyebrow";
@@ -85,6 +87,7 @@ export default function AboutPage() {
           </div>
         </Container>
       </section>
+      <FilmSplit />
 
       <section className="bg-sand py-24 sm:py-32" aria-labelledby="values-title">
         <Container wide>
@@ -156,6 +159,7 @@ export default function AboutPage() {
         </Container>
       </section>
 
+      <Testimonials />
       <CtaBand />
     </>
   );

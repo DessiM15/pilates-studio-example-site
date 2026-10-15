@@ -205,6 +205,27 @@ export type Clip = {
 };
 
 export const clips = {
+  reformerPlants: {
+    id: 28675170,
+    src: "https://videos.pexels.com/video-files/28675170/12449795_2562_1440_60fps.mp4",
+    poster: "reformerWindows",
+    alt: "A woman in a long extension on a reformer in a plant filled studio",
+    credit: "Orit Ein Yam on Pexels",
+  },
+  rollingMats: {
+    id: 8480539,
+    src: "https://videos.pexels.com/video-files/8480539/8480539-hd_1920_1080_25fps.mp4",
+    poster: "matDuo",
+    alt: "A group unrolling mats before class in a warm studio",
+    credit: "Pexels",
+  },
+  legsInStraps: {
+    id: 6023223,
+    src: "https://videos.pexels.com/video-files/6023223/6023223-hd_1920_1080_25fps.mp4",
+    poster: "reformerLegsInStraps",
+    alt: "A client working through legs in straps on a reformer with an instructor",
+    credit: "Kampus Production on Pexels",
+  },
   hero: {
     id: 6023188,
     src: "https://videos.pexels.com/video-files/6023188/6023188-hd_1920_1080_25fps.mp4",
@@ -245,3 +266,6 @@ export const clips = {
 } as const satisfies Record<string, Clip>;
 
 export type ClipKey = keyof typeof clips;
+
+/** Order of clips in the home page hero montage. Each plays for a few seconds and crossfades. */
+export const heroMontage: ClipKey[] = ["reformerPlants", "studioRoom", "rollingMats", "legsInStraps", "hero"];

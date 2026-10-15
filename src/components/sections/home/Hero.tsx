@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { VideoBackground } from "@/components/ui/VideoBackground";
+import { VideoMontage } from "@/components/ui/VideoMontage";
+import { heroMontage } from "@/lib/media";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { site } from "@/lib/site";
 
@@ -10,7 +11,7 @@ export function Hero() {
       className="on-dark relative isolate flex min-h-[100svh] items-end overflow-hidden bg-charcoal text-ivory"
       aria-labelledby="hero-title"
     >
-      <VideoBackground id="hero" priority controlClassName="bottom-6 right-5 sm:right-8 lg:right-12" />
+      <VideoMontage ids={heroMontage} controlClassName="bottom-6 right-5 sm:right-8 lg:right-12" />
       <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-charcoal/85 via-charcoal/25 to-charcoal/20" />
       <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-r from-charcoal/40 to-transparent" />
 

@@ -2,18 +2,18 @@
 
 @theme {
   /* Palette: ivory, warm neutrals, light brown, gold, charcoal */
-  --color-ivory: #faf7f2;
-  --color-sand: #f1ebe1;
-  --color-linen: #e6dccb;
-  --color-taupe: #b8a48c;
-  --color-mocha: #7a6248;
-  --color-gold: #c6a664;
-  --color-gold-deep: #8a6b2d;
-  --color-gold-light: #d9c39a;
-  --color-charcoal: #1c1917;
-  --color-ink: #26221e;
-  --color-stone: #5b544c;
-  --color-mist: #a79f96;
+  --color-ivory: #f5efe6;
+  --color-sand: #ebe1d1;
+  --color-linen: #dccbb2;
+  --color-taupe: #b39b7f;
+  --color-mocha: #6f5438;
+  --color-gold: #c3a164;
+  --color-gold-deep: #86672c;
+  --color-gold-light: #d8c296;
+  --color-charcoal: #241e19;
+  --color-ink: #2b2420;
+  --color-stone: #5f5346;
+  --color-mist: #a39588;
   --color-white: #ffffff;
   --color-success: #2f6b4f;
   --color-danger: #9b3b2e;
@@ -56,12 +56,7 @@
   --header-h: 5rem;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
 @media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;

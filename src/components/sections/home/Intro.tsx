@@ -46,7 +46,7 @@ export function Intro() {
           <div className="relative lg:col-span-6">
             <Reveal className="relative">
               <ParallaxImage id="archesStudio" className="aspect-[4/5] w-full" sizes="(min-width: 1024px) 50vw, 100vw" strength={10} />
-              <div className="absolute -bottom-8 -left-4 hidden w-56 bg-sand p-6 sm:block lg:-left-12">
+              <div className="absolute -bottom-8 -left-4 hidden w-56 bg-ivory p-6 sm:block lg:-left-12">
                 <p className="eyebrow text-gold-deep">Opening</p>
                 <p className="mt-2 font-serif text-3xl font-light text-charcoal">November 2026</p>
                 <p className="mt-1 text-xs text-stone">Southwest Houston</p>
